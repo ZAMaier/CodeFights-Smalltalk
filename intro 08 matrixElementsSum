@@ -1,0 +1,18 @@
+Object subclass: solution [
+    matrix: building [
+        
+        | roomCount hauntedColumns totalCost |
+        
+        roomCount := building first size.
+        hauntedColumns := Array new: roomCount.
+        totalCost := 0.
+        
+        building do: [ :floor |
+            1 to: roomCount do: [ :i |
+                (hauntedColumns at: i) ifNil: [ totalCost := totalCost + (floor at: i) ].
+                ((floor at: i) = 0) ifTrue: [ hauntedColumns at: i put: 'Boo!' ]
+                ]].
+                
+        ^ totalCost
+        
+]]
