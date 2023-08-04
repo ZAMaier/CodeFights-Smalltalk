@@ -1,0 +1,14 @@
+Object subclass: solution [
+    sequence: s [
+            
+        | a b |   a := 0.   b := 0.
+        
+        (1 to: s size - 1) do: "accumulate the sequential (...XX...) defects to 'a'"
+            [ :i | ((s at: i) < (s at: i+1)) ifFalse: [a := a+1]].
+        
+        (1 to: s size - 2) do: "accumulate the skip-index (...X.X...) defects to 'b'"
+            [ :i | ((s at: i) < (s at: i+2)) ifFalse: [b := b+1]].
+        
+        ^ (a < 2) & (b < 2)
+        
+]]
