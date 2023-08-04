@@ -1,0 +1,6 @@
+Object subclass: solution [
+    param1: x param2: y [
+
+        ^ x + y
+
+]]
