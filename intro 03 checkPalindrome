@@ -1,0 +1,6 @@
+Object subclass: solution [
+    inputString: s [
+        
+        ^ s = s reverse
+        
+]]
