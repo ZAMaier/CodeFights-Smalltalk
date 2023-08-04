@@ -1,0 +1,14 @@
+Object subclass: solution [
+    | team1 team2 index |
+    a: players [
+    
+    team1 := 0.   team2 := 0.   index := 0.
+    
+    players do: [ :each | index := index + 1. (index odd) 
+        ifTrue: [ team1 := team1 + each ]
+        ifFalse: [ team2 := team2 + each ]
+        ].
+    
+    ^ Array with: team1 with: team2
+    
+]]
