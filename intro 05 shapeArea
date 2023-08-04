@@ -1,0 +1,9 @@
+Object subclass: solution [
+    n: n [
+    
+        | a |
+        a := 1.
+        1 to: n do: [ :i | a := a+(i-1*4) ].
+        ^ a
+    
+]]
