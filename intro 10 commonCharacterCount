@@ -1,0 +1,15 @@
+Object subclass: solution [
+    | oC1 |
+    s1: s1 s2: s2 [
+        
+        "'intersection:' doesn't work. Bummer. Let's work with 'includes:' instead."
+        
+        oC1 := s1 asOrderedCollection.
+        
+        s2 do: [ :char |
+            (oC1 includes: char) ifTrue: [oC1 remove: char]
+        ].
+    
+        ^ s1 size - oC1 size
+
+]]
