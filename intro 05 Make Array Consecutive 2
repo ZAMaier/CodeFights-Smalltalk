@@ -1,0 +1,15 @@
+Object subclass: solution [
+    statues: statues [
+        
+        | sorted needed |
+        
+        sorted := SortedCollection withAll: statues.
+        needed := OrderedCollection new.
+        
+        (sorted first to: sorted last) do:
+            [ :stat | (sorted includes: stat) ifFalse: [needed add: stat] ].
+            
+        needed printNl.
+        ^ needed size
+        
+]]
