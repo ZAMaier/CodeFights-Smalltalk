@@ -1,0 +1,13 @@
+Object subclass: solution [
+    inputArray: a [
+    
+    | b c |   b := 0.   c := -1000.
+    
+    1 to: a size - 1 do: [ :i |
+        b := (a at: i) * (a at: i + 1).
+        b > c ifTrue: [ c := b ]
+    ].
+    
+    ^ c
+    
+]]
