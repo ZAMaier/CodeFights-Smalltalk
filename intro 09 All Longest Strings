@@ -1,0 +1,45 @@
+"For the hell of it, let's practice this with a dictionary."
+"
+Object subclass: solution [
+    | longest stringsBySize temp |
+    inputArray: array [
+        
+        longest := 0.
+        
+        stringsBySize := Dictionary new.
+        1 to: 10 do: [:i |
+            stringsBySize at: i put: OrderedCollection new
+        ].
+                
+        array do: [:string |
+            temp := stringsBySize at: (string size).
+            temp add: string.
+            stringsBySize at: string size put: temp.
+            ((string size) > longest) ifTrue: [longest := string size]
+        ].
+        
+        ^ Array withAll: (stringsBySize at: longest)
+
+]]
+"
+
+"And now let's do it the right way."
+
+Object subclass: solution [
+    | longest collection |
+    inputArray: array [
+
+        longest := 0.
+        array do: [:string |
+        
+            (string size = longest) ifTrue:
+                [ collection add: string ].
+                
+            (string size > longest) ifTrue:
+                [ collection := OrderedCollection with: string.
+                  longest := string size ]
+        ].
+        
+        ^ Array withAll: collection
+        
+]]
