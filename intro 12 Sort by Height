@@ -1,0 +1,16 @@
+Object subclass: solution [
+    | heights index output |
+    a: treesAndPeeps [
+        
+        heights := (treesAndPeeps select: [:x | x > 0]) asSortedCollection.
+        index := 1.
+        output := OrderedCollection new.
+        
+        treesAndPeeps do: [:each | (each = -1) 
+            ifTrue:  [output add: -1];
+            ifFalse: [output add: (heights at: index). index := index +1]
+        ].
+        
+        ^ output asArray
+        
+]]
