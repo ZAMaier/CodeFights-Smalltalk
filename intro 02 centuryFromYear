@@ -1,0 +1,6 @@
+Object subclass: solution [
+    year: y [
+        
+        ^ y - 1 // 100 + 1
+        
+]]
